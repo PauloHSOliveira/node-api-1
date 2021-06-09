@@ -7,8 +7,7 @@ exports.getCalls = (req, res) => {
 exports.createItem = async (req, res) => {
   try {
     const call = req.body
-    const response = await Calls.create(call)
-    res.status(200).json(response)
+    await Calls.create(call,res)
   } catch (error) {
     console.error(error)
   }
