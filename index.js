@@ -5,18 +5,16 @@ const Tables = require('./infra/tables')
 const routes = require('./routes')
 
 databaseConnection.connect((erro) => {
-   if(erro) {
+  if (erro) {
     console.error(erro)
-   } else {
-       console.log('connection sucess')
+  } else {
+    console.log('connection sucess')
 
-       Tables.init(databaseConnection)
+    Tables.init(databaseConnection)
 
-       const app = express()
-       app.use(bodyParser.json())
-       app.use(routes)
-       app.listen(3333,() => console.log('servidor rodando na porta 3333'))
-   }
+    const app = express()
+    app.use(bodyParser.json())
+    app.use(routes)
+    app.listen(3333, () => console.log('servidor rodando na porta 3333'))
+  }
 })
-
-
